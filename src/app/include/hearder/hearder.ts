@@ -23,7 +23,17 @@ export class Hearder {
     { id: 'contact', label: 'Contact', path: '/page/contact' },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.router.events.subscribe(() => {
+    const currentPath = this.router.url;
+
+    const activeItem = this.menuItems.find(item => item.path === currentPath);
+
+    if (activeItem) {
+      this.currentPage = activeItem.id;
+    }
+  });
+  }
 
   handlePageChange(pageId: string, path: string) {
     this.currentPage = pageId;

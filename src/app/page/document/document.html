@@ -23,18 +23,18 @@
   <!-- Documents Grid -->
   <section class="documents-grid">
     <div *ngFor="let doc of filteredDocuments" class="document-card">
-      <div class="doc-header" [style.background-color]="doc.color">
-        <i [class]="doc.icon + ' doc-icon'"></i>
+      <div class="doc-header" [style.background-color]="getStyleByCategory(doc.type).color">
+        <i [class]="getStyleByCategory(doc.type).icon + ' doc-icon'"></i>
         <div class="doc-info">
-          <span class="format">{{ doc.format }}</span>
-          <span class="size">{{ doc.size }}</span>
+          <!-- <span class="format">{{ doc.format }}</span> -->
+          <!-- <span class="size">{{ doc.size }}</span> -->
         </div>
-        <h3>{{ doc.title }}</h3>
+        <h3>{{ doc.titre }}</h3>
       </div>
       <div class="doc-content">
-        <span class="category">{{ doc.category }}</span>
+        <span class="category">{{ doc.type}}</span>
         <p>{{ doc.description }}</p>
-        <button (click)="downloadDocument(doc)">
+        <button (click)="downloadFile(doc.fichierPath)">
           <i class="fas fa-download"></i> Télécharger
         </button>
       </div>

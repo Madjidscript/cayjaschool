@@ -17,15 +17,15 @@ interface Stat {
 })
 export class Acceuil implements OnInit {
    stats: Stat[] = []
-   totalEleve:string = ''
-   totalClasse:string = ""
-   totalProf:string =  ''
+   totalEleve:any
+   totalClasse:any
+   totalProf:any
 
 
    constructor(private api:Dashboard,private cdr: ChangeDetectorRef){}
   ngOnInit(): void {
     this.getalltotaux()
-    this.getstat()
+
     
   }
 
@@ -36,7 +36,9 @@ export class Acceuil implements OnInit {
         this.totalProf= value.total_prof
         this.totalClasse = value.total_classe
         this.totalEleve = value.total_eleve
-        // this.cdr.detectChanges();
+            this.getstat()
+
+        this.cdr.detectChanges();
 
       },
       error:(err:any)=> {
