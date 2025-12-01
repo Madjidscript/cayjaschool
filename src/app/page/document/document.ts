@@ -120,11 +120,24 @@ export class Document implements OnInit {
     alert(`Téléchargement de "${doc.title}" en cours...`);
   }
 
-  downloadFile(path:string) {
+//   downloadFile(path:string) {
+//   const link = document.createElement('a');
+//   link.href = `http://localhost:8090/uploads/${path}`;
+//   link.download = 'doc.pdf'; // Nom du fichier téléchargé
+//   link.click();
+//   console.log("mon document",link,path)
+// }
+
+downloadFile(path: string) {
+  const fileUrl = `http://localhost:8090/uploads/${path}`;
+
   const link = document.createElement('a');
-  link.href = `http://localhost:8090/uploads/${path}`;
-  link.download = 'emploitemp.pdf'; // Nom du fichier téléchargé
+  link.href = fileUrl;
+  link.download = path; // Use real file name
+  link.target = "_blank"; // optionnel
   link.click();
+
+  console.log("Téléchargement du fichier :", fileUrl);
 }
 
 }

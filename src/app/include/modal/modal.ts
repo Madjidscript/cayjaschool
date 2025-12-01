@@ -48,13 +48,14 @@ export class Modal {
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  
+
    }
 
   downloadFile() {
   const link = document.createElement('a');
   link.href = `http://localhost:8090/uploads/${this?.classDetails?.doc_path}`;
   link.download = 'emploitemp.pdf'; // Nom du fichier téléchargé
+  link.target = "_blank"; // optionnel
   link.click();
 }
 
