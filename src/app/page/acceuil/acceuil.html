@@ -1,0 +1,67 @@
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container text-center">
+    <h1>Bienvenue à l'École <span class="gradient-text">Secondaire et Technique</span></h1>
+    <p>Façonnons l'avenir avec excellence, innovation et détermination</p>
+    <div class="buttons">
+      <button class="btn-primary" [routerLink]="['/page/classes']" routerLinkActive="router-link-active" >Découvrir nos Classes</button>
+      <button class="btn-outline" [routerLink]="['/page/contact']" routerLinkActive="router-link-active" >Contact</button>
+    </div>
+  </div>
+</section>
+
+<!-- Message du Directeur -->
+<section class="directeur">
+  <div class="container grid-directeur">
+    <div class="photo-directeur">Photo du Directeur</div>
+    <div>
+      <h2>Message du Directeur</h2>
+      <p>Chers élèves, parents et partenaires, c'est avec un immense plaisir que je vous souhaite la bienvenue dans notre établissement d'excellence.</p>
+      <p>M. Jean DUPONT, Directeur</p>
+    </div>
+  </div>
+</section>
+
+<!-- Statistiques -->
+<section class="stats">
+  <div class="container">
+    <h2>Notre École en Chiffres</h2>
+    <div class="grid-stats">
+      <div *ngFor="let stat of stats" class="stat-card">
+        <div class="icon">
+          <i [class]="stat.icon"></i>
+        </div>
+        <div class="value">{{ stat.value }}</div>
+        <div class="label">{{ stat.label }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Présentation Rapide -->
+<section class="presentation">
+<div class="container">
+         <h2>Pourquoi Choisir Notre École ?</h2>
+     <p>
+        Nous offrons une éducation complète
+         qui prépare nos élèves à exceller dans leurs études et leur future carrière
+     </p>
+</div>
+  <div class="container grid-3">
+    <div class="card">
+      <div class="icon"><i class="fas fa-book-open"></i></div>
+      <h3>Excellence Académique</h3>
+      <p>Programmes d'études rigoureux et enseignants qualifiés pour garantir la réussite de chaque élève.</p>
+    </div>
+    <div class="card">
+      <div class="icon"><i class="fas fa-chart-line"></i></div>
+      <h3>Formation Technique</h3>
+      <p>Ateliers modernes et formation pratique pour préparer nos élèves aux métiers d'avenir.</p>
+    </div>
+    <div class="card">
+      <div class="icon"><i class="fas fa-award"></i></div>
+      <h3>Accompagnement Personnalisé</h3>
+      <p>Suivi individuel et soutien adapté aux besoins de chaque élève pour maximiser son potentiel.</p>
+    </div>
+  </div>
+</section>

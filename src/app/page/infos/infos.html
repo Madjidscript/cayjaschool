@@ -1,0 +1,37 @@
+<section class="hero">
+  <h1>Actualités – Restez informés des dernières nouvelles
+</h1>
+  <p>Découvrez toutes les informations importantes de notre établissement : événements,
+     examens, activités culturelles et sportives. 
+    Ne manquez aucune mise à jour grâce à notre section actualités.</p>
+</section>
+
+
+<div class="news-container">
+  <h2 class="title">Actualités Récentes</h2>
+
+  <!-- Filtres -->
+  <div class="filters">
+    <button 
+      *ngFor="let category of categories"
+      (click)="setCategory(category)"
+      [class.active]="selectedCategory === category">
+      {{ category }}
+    </button>
+  </div>
+
+  <!-- Liste des actualités -->
+  <div class="news-grid">
+    <div *ngFor="let news of filteredNews" class="news-card">
+      <div class="news-header">
+        <i [class]="getIconByCategory(news.typeActivite)"></i>
+        <div>
+          <h3>{{ news.titre }}</h3>
+          <span class="date">{{ news.date_publication }}</span>
+        </div>
+      </div>
+      <p class="content">{{ news.description }}</p>
+      <a href="#" class="read-more">Lire la suite →</a>
+    </div>
+  </div>
+</div>

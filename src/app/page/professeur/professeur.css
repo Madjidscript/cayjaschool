@@ -1,0 +1,99 @@
+/* Hero */
+.hero {
+  background: linear-gradient(to right, #1d4ed8, #1e3a8a);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+.hero p {
+  font-size: 1.2rem;
+  color: #e0e7ff;
+}
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 40px 20px;
+  background: #fff;
+  text-align: center;
+}
+.stat-card {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 20px;
+}
+.stat-card .value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2563eb;
+}
+.stat-card .label {
+  color: #4b5563;
+}
+
+/* Teachers */
+.teachers {
+  background: #f3f4f6;
+  padding: 50px 20px;
+}
+.subject-block {
+  margin-bottom: 40px;
+}
+.subject-block h2 {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.subject-block .color-bar {
+  display: inline-block;
+  width: 8px;
+  height: 30px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+/* Teacher Card */
+.teachers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.teacher-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform .2s, box-shadow .2s;
+}
+.teacher-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+.teacher-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-right: 15px;
+  font-size: 20px;
+}
+.teacher-info p {
+  font-size: 0.9rem;
+  color: #374151;
+  margin: 5px 0;
+}

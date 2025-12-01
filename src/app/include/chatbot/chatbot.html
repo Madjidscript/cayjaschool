@@ -1,0 +1,50 @@
+<!-- Bouton flottant pour ouvrir/fermer le chat -->
+<button class="chat-toggle" (click)="toggleChat()">
+  🤖
+</button>
+
+
+<div class="chat-wrapper" *ngIf="isOpen">
+  <header class="chat-header">
+  <div class="left">
+    <div class="avatar">🤖</div> <!-- Emoji robot -->
+    <div>
+      <h3>Assistant Wakanda</h3>
+    </div>
+  </div>
+
+  <div class="right" (click)="toggleChat()">
+    ❌
+  </div>
+</header>
+
+
+  <div class="messages" #scrollContainer>
+    <div *ngFor="let msg of messages" [ngClass]="{'message-row': true, 'user': msg.role==='user', 'assistant': msg.role==='assistant'}">
+      
+      <!-- Avatar assistant -->
+      <div *ngIf="msg.role==='assistant'" class="avatar-small">🤖</div>
+      
+      <!-- Bubble du message -->
+      <div class="bubble" [class.user-bubble]="msg.role==='user'" [class.ai-bubble]="msg.role==='assistant'">
+        <ng-container *ngIf="!msg.isTyping">{{ msg.content }}</ng-container>
+        <ng-container *ngIf="msg.isTyping">
+          <div class="typing">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </ng-container>
+      </div>
+      
+      <!-- Avatar user -->
+      <div *ngIf="msg.role==='user'" class="avatar-small user-avatar">👤</div> <!-- Emoji utilisateur -->
+    </div>
+  </div>
+
+  <!-- Formulaire -->
+  <form [formGroup]="formData" (ngSubmit)="sendMessage()" class="input-area">
+    <textarea formControlName="message" placeholder="Demandez-moi quelque chose..."></textarea>
+    <button type="submit" [disabled]="formData.invalid || isLoading" class="send-button">➤</button> <!-- Emoji envoyer -->
+  </form>
+</div>

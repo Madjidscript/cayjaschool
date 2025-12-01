@@ -1,0 +1,242 @@
+.chat-wrapper { display:flex; flex-direction:column; height:100%; background:#F9FAFB; }
+.chat-header { padding:16px; background:linear-gradient(90deg,#ffb680,#ffb68080); color:#fff; display:flex; align-items:center; }
+.avatar { width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.12); margin-right:12px; }
+.messages { flex:1; overflow-y:auto; padding:20px; }
+.message-row { display:flex; align-items:flex-end; margin-bottom:16px; }
+.message-row.user { justify-content:flex-end; }
+.message-row.assistant { justify-content:flex-start; }
+.avatar-small { width:32px; height:32px; border-radius:16px; background:#EEF2FF; display:flex; align-items:center; justify-content:center; margin-right:8px; }
+.user-avatar { background:#ff7001; margin-left:8px; margin-right:0; }
+.bubble { max-width:75%; border-radius:20px; padding:12px 16px; box-shadow:0 1px 2px rgba(0,0,0,0.05); }
+.user-bubble { background:#ffb680; color:#1F2937; border-bottom-right-radius:4px; }
+.ai-bubble { background:#fff; color:#1F2937; border-bottom-left-radius:4px; }
+.input-area { display:flex; gap:12px; align-items:flex-end; padding:16px; border-top:1px solid #F3F4F6; background:#fff; }
+textarea { flex:1; min-height:48px; max-height:120px; border-radius:24px; padding:12px 16px; border:1px solid #E5E7EB; background:#F9FAFB; resize:none; }
+button { width:48px; height:48px; border-radius:24px; display:flex; align-items:center; justify-content:center; border:none; cursor:pointer; background:#ff7001; color:#fff; }
+button:disabled { background:#F3F4F6; cursor:not-allowed; }
+.typing { display:flex; gap:6px; align-items:center; justify-content:center; }
+.dot { width:8px; height:8px; border-radius:50%; background:#9CA3AF; opacity:0.3; animation: blink 1.2s infinite ease-in-out; }
+.dot:nth-child(2) { animation-delay:0.2s; }
+.dot:nth-child(3) { animation-delay:0.4s; }
+@keyframes blink { 0% { opacity:0.3 } 50% { opacity:1 } 100% { opacity:0.3 } }
+
+
+
+
+.chat-toggle {
+  position: fixed;       /* Toujours visible à l’écran */
+  bottom: 20px;          /* Distance du bas */
+  right: 20px;           /* Distance de la droite */
+  width: 60px;           /* Taille du bouton */
+  height: 60px;
+  border-radius: 50%;    /* Rond */
+  border: none;
+  background-color: #ff7001; /* Couleur du bouton */
+  color: #fff;           /* Couleur de l’emoji */
+  font-size: 32px;       /* Taille de l’emoji */
+  display: flex;
+  justify-content: center;
+  align-items: center;   /* Centrer l’emoji */
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Légère ombre */
+  z-index: 1000;
+  transition: transform 0.2s; /* Pour effet hover */
+}
+
+.chat-toggle:hover {
+  transform: scale(1.1); /* Légère augmentation au survol */
+}
+
+
+.chat-header {
+  display: flex;
+  justify-content: space-between; /* espace entre gauche et droite */
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #ff7001;
+  color: #fff;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* espace entre emoji et texte */
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.right {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+
+.chat-wrapper {
+  position: fixed;       /* Flottant */
+  bottom: 80px;          /* Au-dessus du bouton flottant */
+  right: 20px;           /* Collé à droite */
+  width: 400px;          /* Largeur fixe */
+  height: 500px;         /* Hauteur fixe */
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #f9fafb;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+}
+
+/* Header */
+.chat-header {
+  display: flex;
+  justify-content: space-between; /* espace entre gauche et droite */
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #ff7001;
+  color: #fff;
+}
+
+/* Partie gauche (avatar + titre) */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* espace entre emoji et texte */
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+/* Bouton fermer */
+.right {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Zone des messages */
+.messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+/* Bulles messages */
+.bubble {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.user-bubble {
+  background-color: #ffb680;
+  align-self: flex-end;
+}
+
+.ai-bubble {
+  background-color: #ffffff;
+  align-self: flex-start;
+}
+
+/* Avatar utilisateur et assistant */
+.avatar-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.user-avatar {
+  background-color: #ff7001;
+  margin-left: 8px;
+}
+
+/* Typing indicator */
+.typing {
+  display: flex;
+  gap: 4px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #9ca3af;
+  border-radius: 50%;
+}
+
+/* Formulaire */
+.input-area {
+  display: flex;
+  padding: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+textarea {
+  flex: 1;
+  border-radius: 24px;
+  padding: 8px 12px;
+  font-size: 14px;
+  resize: none;
+  border: 1px solid #d1d5db;
+}
+
+/* button {
+  margin-left: 8px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ff7001;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+} */
+
+
+.send-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ff7001;
+  color: #fff;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px;
+  transition: transform 0.2s;
+  
+  /* Incliner la flèche vers le haut droit */
+  transform: rotate(-45deg); /* angle négatif = haut à droite */
+}
+
+.send-button:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.send-button:hover:not(:disabled) {
+  transform: rotate(-45deg) scale(1.1);
+}

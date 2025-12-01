@@ -1,0 +1,41 @@
+<!-- Hero -->
+<section class="hero">
+  <div class="container text-center">
+    <h1>Nos Classes</h1>
+    <p>Découvrez nos différentes classes et leurs informations détaillées</p>
+    <div class="info-box">
+      Cliquez sur une classe pour voir les détails du professeur principal, les effectifs et télécharger l'emploi du temps
+    </div>
+  </div>
+</section>
+
+<!-- Classes par niveau ou type -->
+<section class="classes">
+  <div class="container">
+    <div *ngFor="let level of levels">
+      <h2 class="level-title">{{ level | titlecase }}</h2>
+      <div class="grid-classes">
+        <div *ngFor="let classItem of groupedClasses[level]" class="card" (click)="openModal(classItem)">
+          <div class="header">
+            <div [ngClass]="levelColors[level]">🎓</div>
+            <div class="total">{{ classItem.total }} élèves</div>
+          </div>
+          <h3>{{ classItem.nom }}</h3>
+          <p>Prof : {{ classItem.nomprof }} {{ classItem.prenomprof }}</p>
+          <p class="matiere">{{ classItem.matiereprof }}</p>
+          <div class="gender">
+            <span>♀ {{ classItem.nbreFille }}</span>
+            <span>♂ {{ classItem.nbreGarcon }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<app-modal 
+  *ngIf="isModalOpen" 
+  [classDetails]="selectedClass" 
+  (close)="closeModal()">
+</app-modal>

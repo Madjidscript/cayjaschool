@@ -1,0 +1,79 @@
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container text-center">
+    <h1>À Propos de Notre École</h1>
+    <p>Découvrez notre histoire, notre mission et notre vision pour l'éducation de demain</p>
+  </div>
+</section>
+
+<!-- Histoire -->
+<section class="histoire">
+  <div class="container grid-histoire">
+    <div>
+      <h2>Notre Histoire</h2>
+      <p>Fondée en 1995, l'École Secondaire et Technique a commencé avec une vision simple mais ambitieuse : offrir une éducation de qualité qui combine excellence académique et formation pratique.</p>
+      <p>Au fil des années, nous avons développé nos infrastructures, enrichi nos programmes et formé des milliers d'élèves qui excellent aujourd'hui dans divers domaines professionnels.</p>
+      <p>Aujourd'hui, nous sommes reconnus comme l'un des établissements les plus performants de la région.</p>
+    </div>
+    <div class="photo-histoire">
+      Photo historique de l'école
+    </div>
+  </div>
+</section>
+
+<!-- Mission et Vision -->
+<section class="mission-vision">
+  <div class="container grid-mv">
+    <div class="card">
+      <h3>Notre Mission</h3>
+      <p>Fournir une éducation de qualité supérieure qui développe les compétences académiques, techniques et personnelles de nos élèves.</p>
+      <ul>
+        <li>Excellence académique et technique</li>
+        <li>Développement des valeurs morales</li>
+        <li>Préparation à l'emploi et aux études supérieures</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Notre Vision</h3>
+      <p>Être l'établissement de référence en matière d'éducation secondaire et technique, reconnu pour l'excellence de ses résultats et l'innovation de ses méthodes pédagogiques.</p>
+      <ul>
+        <li>Leadership en innovation pédagogique</li>
+        <li>Partenariats avec l'industrie</li>
+        <li>Impact positif sur la communauté</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Résultats et Récompenses -->
+<section class="achievements">
+  <div class="container">
+    <h2>Nos Résultats et Récompenses</h2>
+    <div class="grid-achievements">
+      <div *ngFor="let achievement of achievements" class="card">
+        <div class="year">{{ achievement.year }}</div>
+        <h3>{{ achievement.title }}</h3>
+        <p>{{ achievement.description }}</p>
+      </div>
+    </div>
+
+    <!-- Statistiques supplémentaires -->
+    <div class="grid-stats">
+      <div class="stat-card">
+        <div class="icon">👥</div>
+        <div class="value">2500+</div>
+        <div class="label">Anciens élèves</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon">📚</div>
+        <div class="value">15+</div>
+        <div class="label">Filières techniques</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon">🏆</div>
+        <div class="value">25+</div>
+        <div class="label">Années d'excellence</div>
+      </div>
+    </div>
+  </div>
+</section>

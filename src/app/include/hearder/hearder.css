@@ -1,0 +1,106 @@
+.header {
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  background-color: #1d4ed8;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.desktop-nav {
+  display: none;
+}
+
+.desktop-nav button {
+  margin-left: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background: none;
+  color: #4a5568;
+  transition: all 0.2s;
+}
+
+.desktop-nav button:hover {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+}
+
+.desktop-nav button.active {
+  background-color: #1d4ed8;
+  color: white;
+}
+
+.mobile-menu-btn {
+  display: block;
+}
+
+.mobile-menu-btn button {
+  border: none;
+  background: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.mobile-nav button {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: none;
+  color: #4a5568;
+  text-align: left;
+  cursor: pointer;
+}
+
+.mobile-nav button.active {
+  background-color: #1d4ed8;
+  color: white;
+}
+
+@media(min-width: 768px) {
+  .desktop-nav { display: flex; }
+  .mobile-menu-btn { display: none; }
+  .mobile-nav { display: none; }
+}

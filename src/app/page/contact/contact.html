@@ -1,0 +1,114 @@
+<div class="contact-page">
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Contact</h1>
+    <p>N'hésitez pas à nous contacter pour toute question ou demande d'information</p>
+  </section>
+
+  <!-- Contact Info & Form -->
+  <section class="contact-section">
+    <div class="contact-grid">
+      
+      <!-- Coordonnées -->
+      <div class="contact-info">
+        <h2>Nos Coordonnées</h2>
+
+        <div class="info-card">
+          <h3>Adresse</h3>
+          <p>123 Avenue de l'Éducation</p>
+          <p>Quartier Académique</p>
+          <p>Yaoundé, Cameroun</p>
+          <p>BP: 1234 Yaoundé</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Téléphone</h3>
+          <p>Direction: +237 6XX XXX XXX</p>
+          <p>Secrétariat: +237 6YY YYY YYY</p>
+          <p>Vie Scolaire: +237 6ZZ ZZZ ZZZ</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Email</h3>
+          <p>Direction: direction@ecole-technique.cm</p>
+          <p>Secrétariat: secretariat@ecole-technique.cm</p>
+          <p>Admissions: admissions@ecole-technique.cm</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Horaires d'Ouverture</h3>
+          <p>Lundi - Vendredi: 7h00 - 17h00</p>
+          <p>Samedi: 8h00 - 12h00</p>
+          <p>Dimanche: Fermé</p>
+          <p class="note">* Secrétariat ouvert uniquement en période scolaire</p>
+        </div>
+      </div>
+
+      <!-- Formulaire -->
+      <div class="contact-form">
+        <h2>Envoyez-nous un Message</h2>
+
+        <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+          <!-- Nom -->
+          <div class="form-group">
+            <label>Nom complet *</label>
+            <input type="text" formControlName="name" placeholder="Votre nom complet" />
+            <span *ngIf="formData.get('name')?.touched && formData.get('name')?.invalid" class="error">
+              Nom obligatoire
+            </span>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" formControlName="email" placeholder="votre@email.com" />
+            <span *ngIf="formData.get('email')?.touched && formData.get('email')?.invalid" class="error">
+              Email invalide
+            </span>
+          </div>
+
+          <!-- Sujet -->
+          <div class="form-group">
+            <label>Sujet *</label>
+            <select formControlName="subject">
+              <option value="">Choisir un sujet</option>
+              <option value="admission">Demande d'admission</option>
+              <option value="information">Demande d'information</option>
+              <option value="emploi-temps">Emploi du temps</option>
+              <option value="resultat">Résultats scolaires</option>
+              <option value="reclamation">Réclamation</option>
+              <option value="partenariat">Proposition de partenariat</option>
+              <option value="autre">Autre</option>
+            </select>
+            <span *ngIf="formData.get('subject')?.touched && formData.get('subject')?.invalid" class="error">
+              Sujet obligatoire
+            </span>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label>Message *</label>
+            <textarea rows="5" formControlName="message" placeholder="Décrivez votre demande..."></textarea>
+            <span *ngIf="formData.get('message')?.touched && formData.get('message')?.invalid" class="error">
+              Message obligatoire
+            </span>
+          </div>
+
+          <!-- Bouton -->
+          <button type="submit" [disabled]="isSubmitting">
+            {{ isSubmitting ? "Envoi en cours..." : "Envoyer le Message" }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section">
+    <h2>Localisation</h2>
+    <p>Trouvez-nous facilement</p>
+    <div class="map-placeholder">
+      Carte Interactive - 123 Avenue de l'Éducation, Yaoundé
+    </div>
+  </section>
+</div>

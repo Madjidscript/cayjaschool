@@ -1,0 +1,56 @@
+<!-- Hero -->
+<section class="hero">
+  <h1>Nos Enseignants</h1>
+  <p>Découvrez notre équipe pédagogique qualifiée et expérimentée</p>
+</section>
+
+<!-- Statistiques -->
+<section class="stats">
+  <div class="stat-card">
+    <div class="value">{{ totalProf }}</div>
+    <div class="label">Enseignants</div>
+  </div>
+  <div class="stat-card">
+    <div class="value">{{ totalMatiere }}</div>
+    <div class="label">Matières</div>
+  </div>
+  <div class="stat-card">
+    <div class="value">10+</div>
+    <div class="label">Ans d'expérience moyenne</div>
+  </div>
+  <div class="stat-card">
+    <div class="value">{{ profMastertaux | number:'1.1-1' }}%</div>
+    <div class="label">Diplômes Master+</div>
+  </div>
+</section>
+
+<!-- Liste par matière -->
+<section class="teachers">
+  <div *ngFor="let subject of subjects" class="subject-block">
+    <h2>
+      <span class="color-bar" [style.backgroundColor]="subjectColors[subject]"></span>
+      {{ subject }}
+    </h2>
+
+    <div class="teachers-grid">
+      <div *ngFor="let teacher of groupedTeachers[subject]" class="teacher-card">
+        <div class="teacher-header">
+          <div class="avatar" [style.backgroundColor]="subjectColors[subject]">
+            👤
+          </div>
+          <div>
+            <h3>{{ teacher.nom }} {{ teacher.prenom }}</h3>
+            <p>{{ teacher.matiere}}</p>
+            <p>{{ teacher.email}}</p>
+            <p>{{ teacher.numero}}</p>
+          </div>
+        </div>
+
+        <div class="teacher-info">
+          <p><strong>Qualification:</strong> {{ teacher.diplome }}</p>
+          <!-- <p><strong>Expérience:</strong> {{ teacher.experience }}</p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

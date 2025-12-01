@@ -1,0 +1,39 @@
+<header class="header">
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+      <div class="logo-icon">
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <div>
+        <h1>École Technique</h1>
+        <p>Excellence & Innovation</p>
+      </div>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav" >
+      <button *ngFor="let item of menuItems"
+              (click)="handlePageChange(item.id, item.path)"
+              [class.active]="currentPage === item.id">
+        {{ item.label }}
+      </button>
+    </nav>
+
+    <!-- Mobile Menu Button (visible uniquement sur petit écran) -->
+    <div class="mobile-menu-btn" >
+      <button (click)="toggleMobileMenu()">
+        <i [class]="isMobileMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" *ngIf="isMobileMenuOpen">
+    <button *ngFor="let item of menuItems"
+            (click)="handlePageChange(item.id, item.path)"
+            [class.active]="currentPage === item.id">
+      {{ item.label }}
+    </button>
+  </div>
+</header>

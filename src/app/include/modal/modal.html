@@ -1,0 +1,19 @@
+<div  class="modal-backdrop" (click)="handleClose()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Détails de la classe</h2>
+      <button class="close-btn" (click)="handleClose()">✖</button>
+    </div>
+
+    <div class="modal-body" *ngIf="classDetails">
+      <h3>{{ classDetails.nom }}</h3>
+      <p><strong>Professeur principal :</strong> {{ classDetails.nomprof }}</p>
+      <p><strong>Élèves :</strong> {{ classDetails.total }} (♀ {{ classDetails.nbreFille }} / ♂ {{ classDetails.nbreGarcon }})</p>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn download" (click)="downloadFile()">📥 Télécharger emploi du temps</button>
+      <button class="btn cancel" (click)="handleClose()">Fermer</button>
+    </div>
+  </div>
+</div>

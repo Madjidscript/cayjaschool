@@ -1,0 +1,44 @@
+<div class="documents-container">
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <i class="fas fa-file-alt hero-icon"></i>
+      <h1>Documents</h1>
+      <p>Téléchargez tous les documents officiels : règlement intérieur, calendrier scolaire et informations utiles</p>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="categories">
+    <div class="category-buttons">
+      <button *ngFor="let cat of categories" 
+              [class.active]="selectedCategory === cat"
+              (click)="selectCategory(cat)">
+        {{ cat }}
+      </button>
+    </div>
+  </section>
+
+  <!-- Documents Grid -->
+  <section class="documents-grid">
+    <div *ngFor="let doc of filteredDocuments" class="document-card">
+      <div class="doc-header" [style.background-color]="doc.color">
+        <i [class]="doc.icon + ' doc-icon'"></i>
+        <div class="doc-info">
+          <span class="format">{{ doc.format }}</span>
+          <span class="size">{{ doc.size }}</span>
+        </div>
+        <h3>{{ doc.title }}</h3>
+      </div>
+      <div class="doc-content">
+        <span class="category">{{ doc.category }}</span>
+        <p>{{ doc.description }}</p>
+        <button (click)="downloadDocument(doc)">
+          <i class="fas fa-download"></i> Télécharger
+        </button>
+      </div>
+    </div>
+  </section>
+
+</div>
